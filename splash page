@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Splash Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <style>
+  body {
+    background: url(http://blog.builddirect.com/wp-content/uploads/2011/07/Desk-top.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+  
+  </style>
+<head>
+<body>
+<div class="container">
+  <div class="jumbotron col-md-4">
+    <img class="img-rounded" src="https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s306x306/e15/11018364_1405390863100545_438909524_n.jpg">
+	<h1>Jawwaad Sabree</h1> 
+    <p>This page will grow as we add more and more components from Bootstrap...</p>
+  
+
+  <p>This is another paragraph.</p> 
+  <p>This is a paragraph.</p> 
+  <p>This is another paragraph.</p>
+   <a href="file:///C:/Program%20Files/Notepad++/home.html" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-hand-right"></span> Search</a>
+   </div>
+</div>
+
+</body>
+</html>
