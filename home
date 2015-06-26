@@ -14,7 +14,20 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
+  .carousel-inner{
+  height: 82%;
+  }
+    .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+      height: 100% 
+  }
+  .carousel-inner > .item > .carousel-caption > h1{
+  color: white;
+  text-shadow: 5px 2px black
   
+  }
   
   </style>
 <head>
@@ -33,6 +46,43 @@
 			</ul>
 		</li>
 	</ul>
+	
+	
+	<div id="carousel-example-generic" class="carousel slide col-md-10 nav-justified" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="http://mantascode.com/wp-content/uploads/2012/09/poker-p-11.jpg" alt="cards">
+      <div class="carousel-caption">
+        <h1><b>PLAY MY MACHING CARD GAME</b></h1>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://www.sparklinglockets.com/wp-content/uploads/2013/07/1604390093c6f3.jpg" alt="tictac">
+      <div class="carousel-caption">
+        <h1 style="color: white; text-shadow: 5px 2px black"><b>PLAY MY TIC-TAC-TOE GAME</b></h1>
+      </div>
+    </div>
+    ...
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 </body>
 </html>
