@@ -1,0 +1,135 @@
+<html>
+<head>
+
+<script>
+var dealerTotal = 0;
+
+var deck = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, ]
+
+function Shuffle(o) {
+	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	return o;
+};
+
+function scoreBoard() {
+    document.getElementById("myscore").innerHTML = "YOU: " + total;
+};
+
+function scoreBoard2() {
+    document.getElementById("dealerscore").innerHTML = "DEALER: " + dealerTotal;
+};
+
+
+
+console.log(deck);
+
+var total = 0;
+function hitMe() {
+	Shuffle(deck);
+for (; dealerTotal < 17; ) {
+	dealerHitMe();
+};
+
+window.alert(deck[0]);
+		if (deck[0] === 1 || deck[0] === 11) {
+			var ace = prompt("You got an ace would you like 1 or 11");
+				if (ace === 1) {
+					deck[0] = 1
+				}else{deck[0] = 11};
+		}; 
+
+
+total = total + deck[0];
+console.log(total);
+scoreBoard()
+if (total > 21) {
+	document.getElementById("btn1").disabled = true;
+	document.getElementById("btn2").disabled = true;
+	window.alert("you lose");
+}else if (total === 21) {
+	window.alert("You Got Blackjack!");
+	document.getElementById("btn1").disabled = true;
+};
+}
+
+function dealerHitMe() {
+	Shuffle(deck);
+dealerTotal = dealerTotal + deck[1];
+console.log(dealerTotal);
+}
+
+function done() {
+for (; dealerTotal < 17; ) {
+	dealerHitMe();
+};
+	document.getElementById("btn1").disabled = true;
+	document.getElementById("btn2").disabled = true;
+	scoreBoard2()
+	if (dealerTotal > 21){
+		window.alert("you win!!")
+	}else if (total > dealerTotal) {
+		window.alert("you win!!")   
+    }else if (total === dealerTotal) {
+    	window.alert("you tied.")
+    }else {
+    	window.alert("you lose!!") 
+    }
+}
+window.onload = function() {
+
+Shuffle(deck);
+console.log(deck);
+dealerTotal = deck[2]
+total = deck[3] + deck[4];
+scoreBoard();
+scoreBoard2();
+}
+</script>
+
+
+<style type="text/css">
+ body {
+    background: url(http://www.allaboutslots.com/public/casinos/party-casino/07-blackjack.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.score{
+	text-align: center;
+	font-size: 50px;
+	font-weight: 900;
+}
+button{
+	font-size: 45px;
+	font-weight: 800;
+}
+div{
+	padding-left: 39%;
+}
+</style>
+</head>
+<body>
+<div>
+<button id="btn1" onclick="hitMe()">Hit Me</button>
+<button id="btn2" onclick="done()">Stay</button>
+</div>
+<p class = "score" id="myscore">You: </p>
+<p class = "score" id="dealerscore">DEALER: </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>	
+</html>
