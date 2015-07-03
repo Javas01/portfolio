@@ -7,32 +7,217 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script type="text/javascript">
+$(document).ready(function(){
+	confirm("start game");
+	var totalScore = 0;
+	var clickCount = 0;
+	var firstClickSrc = "";
+	var firstCard;
+	var playerOneScore = 0;
+	var playerTwoScore = 0;
+	
+	function shuffle(o){
+    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
+	
+	var cardPics = new Array();
+	cardPics.push("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSq37iG63fVgwY4omoGjSg43FR7Fr-VmkQ5vQfwEP0WerEE05JR"); 
+	cardPics.push("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSq37iG63fVgwY4omoGjSg43FR7Fr-VmkQ5vQfwEP0WerEE05JR");
+	cardPics.push("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTBQt_XAxsrnYhJ7arc4DhpCg57us15mozWSwFrZLrCrJwH9d");
+	cardPics.push("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTBQt_XAxsrnYhJ7arc4DhpCg57us15mozWSwFrZLrCrJwH9d");
+	cardPics.push("http://i1157.photobucket.com/albums/p599/njldfknkjvfnjvfjvcmcvc/05-06backover.jpg");
+	cardPics.push("http://i1157.photobucket.com/albums/p599/njldfknkjvfnjvfjvcmcvc/05-06backover.jpg");
+	cardPics.push("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSnQ9RiaYkCFzgkJy7pt5QwClSvNdoYGzz9Cn5McHnS5jSBGV97");
+	cardPics.push("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSnQ9RiaYkCFzgkJy7pt5QwClSvNdoYGzz9Cn5McHnS5jSBGV97");
+	cardPics.push("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQHp9by1YMRZ3YKM6pgKlW_CJhZgsAdqJRxsY7Yv2hQdBK9IsXXSg");
+	cardPics.push("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQHp9by1YMRZ3YKM6pgKlW_CJhZgsAdqJRxsY7Yv2hQdBK9IsXXSg");
+	cardPics.push("http://t2.gstatic.com/images?q=tbn:ANd9GcRt3CtFVXPa8flrplgOtGeS5VjnKLkcnCcDXhgSJrb0aY9TlyZa");
+	cardPics.push("http://t2.gstatic.com/images?q=tbn:ANd9GcRt3CtFVXPa8flrplgOtGeS5VjnKLkcnCcDXhgSJrb0aY9TlyZa");
+	cardPics.push("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST-s2hWrjBxrwjrdMDhMRZMUagvLo5LWOFCfgecRaJnd-D_2k7");
+	cardPics.push("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST-s2hWrjBxrwjrdMDhMRZMUagvLo5LWOFCfgecRaJnd-D_2k7");
+	cardPics.push("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSxo74KI3Ho77s99kQ0k2kpzvHBH9gSgbilAj3LVYs--AByg7xV7g");
+	cardPics.push("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSxo74KI3Ho77s99kQ0k2kpzvHBH9gSgbilAj3LVYs--AByg7xV7g");
+	//scramble cardPics array
+	
+	newcardPics = shuffle(cardPics);
+	
+	console.log("start game");
+	var rows = 4;
+	var columns = 4;
+	var playerTurn = "player one";
+/*confused not needed
+	var cardTable = "";
+	cardNumber = 1;
+	for(var i = 0; i < rows; i++){
+		cardTable += "<tr style='clear: both'>";
+		for(var j = 0; j < columns; j++){
+			cardTable += " <td><img name='";
+			cardTable += cardNumber;
+			cardTable += "' class='card' src='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx'></td>";
+			cardNumber++;
+		}
+		cardTable += "</tr>";
+	}
+*/
+	$("#cardTable").append(cardTable);
+ $(".card").click(function(){//once a card is clickked begin
+        clickCount++;//var clickcount now = 1
+	if(clickCount == 1){// clickcount 1
+	if ($(this).attr("src") === "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOw1s2G56qvjV7rS2VmsujJIclMuspBkYUtfyvp5IfOc5z0rPg"){
+		alert("you cant match blank cards"); clickCount--
+	}else{
+			var cardNumber = $(this).attr("name");//var cardnumber = this cards name which is a number
+			cardNumber = parseInt(cardNumber);//turns name imto real num
+			firstClickSrc = newcardPics[cardNumber - 1];//first img is a pic. shuffled array and - 1 becuz 0 based array(flip)
+			$(this).attr("src", firstClickSrc);//this cards img = first img
+			firstCard = $(this);//this is the first card clicked (to help change image later on)
+	}
+	}
+	else if (firstClickSrc === $(this).attr("src")) { alert("you cant click the same card twice"); clickcount--}
+	else{//click count is 2 never goes pass 2
+
+	   			
+			var cardNumber = $(this).attr("name")//card number = name which is a number
+			cardNumber = parseInt(cardNumber)//turns name imto real num
+			$(this).attr("src", newcardPics[cardNumber - 1]);//new card pics is shuffled array and - 1 becuz 0 based array(flip)
+
+	   if(firstClickSrc == $(this).attr("src")){//if there is a match 
+	   			
+				alert("match");// tell them they have a match
+				firstCard.attr("src", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOw1s2G56qvjV7rS2VmsujJIclMuspBkYUtfyvp5IfOc5z0rPg");//turn first card blank
+				firstCard.attr("width", "1");
+				firstCard.attr("height", "1");
+				$(this).attr("src", "http://ironhorseengraving.com/wp-content/uploads/2012/11/wood.jpg");//turn second blank
+				$(this).attr("width", "1");
+				$(this).attr("height", "1");
+				if(playerTurn == "player one"){//declared right after logging of start game
+				playerOneScore++;}//add 1 to player 1 score
+				else{ playerTwoScore++;}//add 1 to player 2 score
+				$("#playerOneScore").html(playerOneScore);//link the score board of player1 to the var player1
+				$("#playerTwoScore").html(playerTwoScore);//link the score board of player2 to the var player2
+				totalScore = playerOneScore + playerTwoScore;
+				function gameOver(){
+					if (playerOneScore > playerTwoScore) {
+						alert("Player One Wins!!");
+					}else if (playerOneScore === playerTwoScore) {
+						alert("It's A Tie!");
+					}else{
+						alert("Player Two Wins!!");
+					};
+					
+				}
+				if (totalScore === 8) {
+					gameOver();
+					alert("Play Again Sometime.");
+				};
+				clickCount=0;//set clickcount back to zero
+			
+	   }
+	   else{ alert("wrong")
+
+	   	firstCard.attr("src", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx");//wrong flip card back over
+				$(this).attr("src", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx");//wrong flip back over and wait before flipping
+			 if(playerTurn == "player one"){//whos turn is it at time
+				playerTurn = "player two";//switch turns
+	         }
+	         else{
+				playerTurn = "player one";//switch turns
+	         }
+			alert("Go " + playerTurn + ".");//tell them they got it wrong
+			clickCount = 0;//set click count back to zero
+	   }
+	}
+		
+ });
+	
+	
+});
+</script>
+
   <style>
   body{
   background: url(http://ironhorseengraving.com/wp-content/uploads/2012/11/wood.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  }
+ } 
+ 
+ table{
+  background: url(http://ironhorseengraving.com/wp-content/uploads/2012/11/wood.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ };
+ .card{
+ 	height: 200px;
+ 	width: 100px;
+ }
   
   
   </style>
 <head>
 <body>
 	<ul class="nav nav-pills nav-justified">
-		<li><a href="file:///C:/Program%20Files/Notepad++/home.html">Home</a></li>
-		<li><a href="file:///C:/Program%20Files/Notepad++/aboutme.html">About Me</a></li>
-		<li><a href="file:///C:/Program%20Files/Notepad++/contact.html">Contact</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/home.html">Home</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/about-me.html">About Me</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/contact.html">Contact</a></li>
 		
 		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="file:///C:/Program%20Files/Notepad++/projects.html">Projects<span class="caret"></span></a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/projects.html">Projects<span class="caret"></span></a>
 		
 			<ul class="dropdown-menu nav-justified">
-				<li class="active"><a href="file:///C:/Program%20Files/Notepad++/cardgame.html">Card Game</a></li>
-				<li><a href="file:///C:/Program%20Files/Notepad++/tictac.html">Tic-Tac-Toe</a></li> 
+				<li class="active"><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/card-game.html">Card Game</a></li>
+				<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/tictactoe.html">Tic-Tac-Toe</a></li> 
+				<li ><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/blackjack.html">Black-Jack</a></li>
 			</ul>
 		</li>
 	</ul>
+
+<div style="float:center; font-size:43px; text-align: center" id="scoreBoard" ;="">
+			<div>
+			Player One Score: <span id="playerOneScore" ;="" style="border:ridge">0</span>
+			</div>
+			<div>
+			Player Two Score: <span id="playerTwoScore" ;="" style="border:ridge">0</span>
+			</div>
+		</div>
+		<table id="cardTable" border="1px" ;="" style="margin:auto">
+        
+        <tbody>
+        	<tr style="clear: both"> 
+        		<td><img name="1" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="2" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="3" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="4" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        	</tr>
+
+        	<tr style="clear: both"> 
+        		<td><img name="5" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="6" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="7" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="8" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        	</tr>
+
+        	<tr style="clear: both"> 
+        		<td><img name="9" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="10" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="11" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="12" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        	</tr>
+
+        	<tr style="clear: both"> 
+        		<td><img name="13" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="14" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="15" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img name="16" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        	</tr>
+        </tbody>
+    </table>
+
+		<p style = "color: white"> <b>© Copyrighted  by Jawwaad Sabree, all rights reserved</b> </p>
 
 </body>
 </html>
