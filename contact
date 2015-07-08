@@ -14,25 +14,28 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
-  
+  .nav-pills{
+	position: fixed;
+  }
   
   </style>
 <head>
 <body>
 	<ul class="nav nav-pills nav-justified">
-		<li><a href="file:///C:/Program%20Files/Notepad++/home.html">Home</a></li>
-		<li><a href="file:///C:/Program%20Files/Notepad++/aboutme.html">About Me</a></li>
-		<li class="active"><a href="file:///C:/Program%20Files/Notepad++/contact.html">Contact</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/home.html">Home</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/about-me.html">About Me</a></li>
+		<li class="active"><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/contact.html">Contact</a></li>
 		
 		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="file:///C:/Program%20Files/Notepad++/projects.html">Projects<span class="caret"></span></a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/projects.html">Projects<span class="caret"></span></a>
 		
 			<ul class="dropdown-menu nav-justified">
-				<li><a href="file:///C:/Program%20Files/Notepad++/cardgame.html">Card Game</a></li>
-				<li><a href="file:///C:/Program%20Files/Notepad++/tictac.html">Tic-Tac-Toe</a></li> 
+				<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/card-game.html">Card Game</a></li>
+				<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/tictactoe.html">Tic-Tac-Toe</a></li>
+				<li ><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/blackjack.html">Black-Jack</a></li> 
 			</ul>
 		</li>
 	</ul>
-
+<p style = "color: white"> <b>© Copyrighted  by Jawwaad Sabree, all rights reserved</b> </p>
 </body>
 </html>
