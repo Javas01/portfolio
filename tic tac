@@ -6,33 +6,229 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   
-  <style>
+
+  <script type="text/javascript">
+$(document).ready(function(){
+
+var playerX = "X";
+var playerO = "O";
+var currentPlayer = "X";
+
+var winOption1 = new Array("#a1", "#a2", "#a3");
+var winOption2 = new Array("#b1", "#b2", "#b3");
+var winOption3 = new Array("#c1", "#c2", "#c3");
+var winOption4 = new Array("#a1", "#b1", "#c1");
+var winOption5 = new Array("#a2", "#b2", "#c2");
+var winOption6 = new Array("#a3", "#b3", "#c3");
+var winOption7 = new Array("#a1", "#b2", "#c3");
+var winOption8 = new Array("#a3", "#b2", "#c1");
+var bigWinOptions = new Array(winOption1, winOption2, winOption3, winOption4, winOption5, winOption6, winOption7, winOption8);
+
+var isGameOver = function(){
+	
+	for(var start = 0; start < bigWinOptions.length; start++){
+		var winOption = bigWinOptions[start];
+		if(($(winOption[0]).text() != "") && ($(winOption[0]).text() == $(winOption[1]).text()) && ($(winOption[1]).text() == $(winOption[2]).text())){
+			
+			return true;
+
+		}
+	} 
+
+	return false;
+
+}
+var currentXScore = 0;
+var currentOScore = 0;
+var catgames = 0;
+$("td").click(function(){
+
+	if(currentPlayer == playerX){
+		if ($(this).text() === playerO || $(this).text() === playerX) {
+			alert("you cant place an X here")
+		}else{
+			$(this).text(playerX);
+		isGameOver();
+		if(isGameOver()){
+			alert("Game Over! Player " + currentPlayer + " won!!");	
+			alert("play again");
+			alert("player " + currentPlayer + " goes first")
+			currentPlayer = playerX;
+			document.getElementById("a1").innerHTML = "";
+			document.getElementById("a2").innerHTML = "";
+			document.getElementById("a3").innerHTML = "";
+
+			document.getElementById("b1").innerHTML = "";
+			document.getElementById("b2").innerHTML = "";
+			document.getElementById("b3").innerHTML = "";
+
+			document.getElementById("c1").innerHTML = "";
+			document.getElementById("c2").innerHTML = "";
+			document.getElementById("c3").innerHTML = "";
+			currentXScore++
+			document.getElementById("playerXScore").innerHTML = " " + currentXScore;
+		}
+		else{
+			currentPlayer = playerO;			
+			//alert(currentPlayer + "\'s turn");
+		}}
+		
+	}
+	else{
+		if ($(this).text() === playerO || $(this).text() === playerX) {
+		alert("you cant place an O here")
+		}else{
+		$(this).text(playerO);
+
+		if(isGameOver()){
+			alert("Game Over! Player " + currentPlayer + " won!!");	
+			alert("play again");
+			alert("player " + currentPlayer + " goes first")
+			document.getElementById("a1").innerHTML = "";
+			document.getElementById("a2").innerHTML = "";
+			document.getElementById("a3").innerHTML = "";
+
+			document.getElementById("b1").innerHTML = "";
+			document.getElementById("b2").innerHTML = "";
+			document.getElementById("b3").innerHTML = "";
+
+			document.getElementById("c1").innerHTML = "";
+			document.getElementById("c2").innerHTML = "";
+			document.getElementById("c3").innerHTML = "";
+			playerOScore ++;
+			document.getElementById("playerOScore").innerHTML = " " + currentOScore;
+		}
+		else{
+			currentPlayer = playerX;
+			//alert(currentPlayer + "\'s turn");
+		}
+
+	}}
+
+	var cats = function(abc){if ($(abc).text() === playerX || $(abc).text() === playerO ) {return true};}
+if (
+cats(a1) &
+cats(a2) &
+cats(a3) &
+
+cats(b1) &
+cats(b2) &
+cats(b3) &
+
+cats(c1) &
+cats(c2) &
+cats(c3)
+			) {
+			alert("Cat game")
+			alert("Play again")
+			catgames = catgames + 1;
+			document.getElementById("catGames").innerHTML = " " + catgames;
+
+			document.getElementById("a1").innerHTML = "";
+			document.getElementById("a2").innerHTML = "";
+			document.getElementById("a3").innerHTML = "";
+
+			document.getElementById("b1").innerHTML = "";
+			document.getElementById("b2").innerHTML = "";
+			document.getElementById("b3").innerHTML = "";
+
+			document.getElementById("c1").innerHTML = "";
+			document.getElementById("c2").innerHTML = "";
+			document.getElementById("c3").innerHTML = "";
+		}
+
+});
+
+});
+  </script>
+
+    <style>
   body{
   background: url(http://ironhorseengraving.com/wp-content/uploads/2012/11/wood.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
-  
-  
+div{
+	padding-left: 23%;
+}
+  table{
+  	text-align: center;
+	border:10px solid black;
+	width:700px;
+	height:650px;
+	padding-top: 55px;
+
+}
+td{
+	border:5px solid black;
+
+	width: 200px;
+	height: 200px;
+	padding-top: 55px;
+}
+tr{
+	border:5px solid black;
+	padding-top: 55px;
+	width: 200px;
+	height: 200px;
+
+}
+.nav-pills{
+	position: fixed;
+}
   </style>
+
 <head>
 <body>
 	<ul class="nav nav-pills nav-justified">
-		<li><a href="file:///C:/Program%20Files/Notepad++/home.html">Home</a></li>
-		<li><a href="file:///C:/Program%20Files/Notepad++/aboutme.html">About Me</a></li>
-		<li><a href="file:///C:/Program%20Files/Notepad++/contact.html">Contact</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/home.html">Home</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/about-me.html">About Me</a></li>
+		<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/contact.html">Contact</a></li>
 		
 		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="file:///C:/Program%20Files/Notepad++/projects.html">Projects<span class="caret"></span></a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/projects.html">Projects<span class="caret"></span></a>
 		
 			<ul class="dropdown-menu nav-justified">
-				<li><a href="file:///C:/Program%20Files/Notepad++/cardgame.html">Card Game</a></li>
-				<li class="active"><a href="file:///C:/Program%20Files/Notepad++/tictac.html">Tic-Tac-Toe</a></li> 
+				<li><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/card-game.html">Card Game</a></li>
+				<li class="active"><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/tictactoe.html">Tic-Tac-Toe</a></li> 
+				<li ><a href="file:///C:/Users/TEMP.MAKEENSABREE-PC.001/AppData/Roaming/Sublime%20Text%202/Packages/User/blackjack.html">Black-Jack</a></li>
 			</ul>
 		</li>
 	</ul>
+<div style="padding-left: 20px; padding-top: 20px; font-size:43px; text-align: center" id="scoreBoard" ;="">
+			<div style="padding-left: 20px; padding-top: 20px;">
+			Player X Score: <span id="playerXScore" ;="" style="border:ridge">0</span>
+			</div>
+			<div style="padding-left: 20px; padding-top: 20px;">
+			Player O Score: <span id="playerOScore" ;="" style="border:ridge">0</span>
+			</div>
+			<div style="padding-left: 20px; padding-top: 20px;">
+			Cat Games: <span id="catGames" ;="" style="border:ridge">0</span>
+			</div>
+		</div>
+<div style = "padding-top: 55px">
+	<table>
+			<tr>
+				<td style = "font-size: 50px; color: white" id="a1"></td>
+				<td style = "font-size: 50px; color: white"id="a2"></td>
+				<td style = "font-size: 50px; color: white"id="a3"></td>
+			</tr>
+			<tr>
+				<td style = "font-size: 50px; color: white"id="b1"></td>
+				<td style = "font-size: 50px; color: white"id="b2"></td>
+				<td style = "font-size: 50px; color: white"id="b3"></td>
 
+			</tr>
+			<tr>
+				<td style = "font-size: 50px; color: white"id="c1"></td>
+				<td style = "font-size: 50px; color: white"id="c2"></td>
+				<td style = "font-size: 50px; color: white"id="c3"></td>
+			</tr>
+		</table>
+</div>
+<p style = "color: white"> <b>© Copyrighted  by Jawwaad Sabree, all rights reserved</b> </p>
 </body>
 </html>
