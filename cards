@@ -144,8 +144,11 @@ $(document).ready(function(){
   background-repeat: no-repeat;
   background-attachment: fixed;
  } 
- 
+ #scoreBoard{
+ 	padding-top: 55px;
+ }
  table{
+ 	padding-top: 55px;
   background: url(http://ironhorseengraving.com/wp-content/uploads/2012/11/wood.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -154,8 +157,11 @@ $(document).ready(function(){
  .card{
  	height: 200px;
  	width: 100px;
+ 	border-radius: 20px;
  }
-  
+.nav-pills{
+	position: fixed;
+} 
   
   </style>
 <head>
@@ -184,35 +190,35 @@ $(document).ready(function(){
 			Player Two Score: <span id="playerTwoScore" ;="" style="border:ridge">0</span>
 			</div>
 		</div>
-		<table id="cardTable" border="1px" ;="" style="margin:auto">
+		<table border="0" id="cardTable" border="1px" ;="" style="margin:auto; border-collapse:separate">
         
         <tbody>
         	<tr style="clear: both"> 
-        		<td><img name="1" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="2" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="3" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="4" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        		<td><img style = "border-radius: 33px" name="1" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="2" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="3" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="4" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
         	</tr>
 
         	<tr style="clear: both"> 
-        		<td><img name="5" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="6" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="7" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="8" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        		<td><img style = "border-radius: 33px" name="5" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="6" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="7" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="8" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
         	</tr>
 
         	<tr style="clear: both"> 
-        		<td><img name="9" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="10" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="11" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="12" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        		<td><img style = "border-radius: 33px" name="9" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="10" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="11" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="12" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
         	</tr>
 
         	<tr style="clear: both"> 
-        		<td><img name="13" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="14" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="15" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
-        		<td><img name="16" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
+        		<td><img style = "border-radius: 33px" name="13" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="14" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="15" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td> 
+        		<td><img style = "border-radius: 33px" name="16" class="card" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQB22Z0wh6wI5JRaixR-l5s7Y5LU4ZEsh7ACPm3UNul-UNhBLSx"></td>
         	</tr>
         </tbody>
     </table>
